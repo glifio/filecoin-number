@@ -1,5 +1,7 @@
 # Filecoin number
 
+[![Travis CI](https://travis-ci.org/openworklabs/filecoin-number.svg?branch=primary)](https://travis-ci.org/openworklabs/filecoin-number)
+
 A wrapper class built around javascript's [bignumber](https://github.com/MikeMcl/bignumber.js). Most questions are best answered from the bignumber readme and docs.
 
 ## Usage
