@@ -24,4 +24,4 @@ class FilecoinNumber extends BigNumber {
   toAttoFil = () => this.shiftedBy(18).toString()
 }
 
-module.exports = FilecoinNumber
+module.exports = { FilecoinNumber, BigNumber }

@@ -1,7 +1,6 @@
 const assert = require('assert')
-const BigNumber = require('bignumber.js')
 
-const FilecoinNumber = require('../')
+const { FilecoinNumber, BigNumber } = require('../')
 
 describe('FilecoinNumber', () => {
   it('should return instances of BigNumber', () => {
