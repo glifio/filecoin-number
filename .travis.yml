@@ -1,3 +1,10 @@
+language: node_js
+cache: npm
+stages:
+  # - check
+  - test
+  - cov
+
 node_js:
   - '12'
   - '10'
