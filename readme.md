@@ -7,7 +7,7 @@ A wrapper class built around javascript's [bignumber](https://github.com/MikeMcl
 ## Usage
 
 ```js
-import FilecoinNumber from '@openworklabs/filecoin-number'
+import { FilecoinNumber, Converter } from '@openworklabs/filecoin-number'
 
 // pass a valid bignumber argument, and a denomination (one of 'fil' or 'attofil') to the constructor.
 const filecoinNumber = new FilecoinNumber('10000', 'attofil')
@@ -18,4 +18,8 @@ filecoinNumber.multiply(7)
 // it comes with 2 additional instance methods for showing the filecoin number in attofil or fil
 const inAttoFil = filecoinNumber.toAttoFil()
 const inFil = filecoinNumber.toFil()
+
+// Use the Converter to convert currencies
+const converter = new Converter('coinmarketcap', COINMARKETCAP_API_KEY)
+const balanceInUSD = await converter.convert('1.5', 'FIL', 'USD')
 ```

@@ -1,4 +1,5 @@
 const BigNumber = require('bignumber.js')
+const Converter = require('./converter')
 
 // not sure how we want to configure rounding for this
 BigNumber.set({ ROUNDING_MODE: BigNumber.ROUND_HALF_DOWN })
@@ -24,4 +25,4 @@ class FilecoinNumber extends BigNumber {
   toAttoFil = () => this.shiftedBy(18).toString()
 }
 
-module.exports = { FilecoinNumber, BigNumber }
+module.exports = { FilecoinNumber, BigNumber, Converter }
