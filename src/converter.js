@@ -15,12 +15,10 @@ class Converter {
     if (!from) throw new Error('No `from` currency passed.')
     if (!to) throw new Error('No `to` currency passed.')
 
-    const get = bent('GET', 'json', {
-      'X-CMC_PRO_API_KEY': this.oracleKey,
-    })
+    const get = bent('GET')
 
     const res = await get(
-      `https://pro-api.coinmarketcap.com/v1/tools/price-conversion?symbol=${from.toUpperCase()}&amount=${amount}&convert=${to.toUpperCase()}`,
+      `http://localhost:80/v1/tools/price-conversion?symbol=${from.toUpperCase()}&amount=${amount}&convert=${to.toUpperCase()}`,
     )
 
     if (!res.data || !res.data.quote || !res.data.quote[to])
