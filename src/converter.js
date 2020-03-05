@@ -15,7 +15,7 @@ class Converter {
     if (!from) throw new Error('No `from` currency passed.')
     if (!to) throw new Error('No `to` currency passed.')
 
-    const get = bent('GET')
+    const get = bent('GET', 'json')
 
     const res = await get(
       `http://localhost:80/v1/tools/price-conversion?symbol=${from.toUpperCase()}&amount=${amount}&convert=${to.toUpperCase()}`,
