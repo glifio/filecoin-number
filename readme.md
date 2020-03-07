@@ -20,6 +20,12 @@ const inAttoFil = filecoinNumber.toAttoFil()
 const inFil = filecoinNumber.toFil()
 
 // Use the Converter to convert currencies
-const converter = new Converter('coinmarketcap', COINMARKETCAP_API_KEY)
-const balanceInUSD = await converter.convert('1.5', 'FIL', 'USD')
+const USDConverter = new Converter(
+  'USD',
+  'coinmarketcap',
+  COINMARKETCAP_API_KEY, // OPTIONAL
+  COINMARKETCAP_PROXY_URL, // OPTIONAL
+)
+await USDConverter.cacheConversionRate()
+const USD = await USDConverter.fromFil(1)
 ```
