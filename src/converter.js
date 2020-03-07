@@ -18,18 +18,14 @@ class Converter {
   }
 
   toFil = async amount => {
-    if (this.rate) {
-      return amount / this.rate
-    }
+    if (this.rate) return amount / this.rate
 
     const price = await this.convert(amount, this.currency, 'FIL')
     return price
   }
 
   fromFil = async amount => {
-    if (this.rate) {
-      return this.rate / amount
-    }
+    if (this.rate) return this.rate / amount
 
     const price = await this.convert(amount, 'FIL', this.currency)
     return price
