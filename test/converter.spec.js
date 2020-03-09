@@ -22,17 +22,19 @@ describe('Converter', () => {
     })
   })
 
-  it('should return instances of BigNumber from .fromFil', async () => {
-    await converter.cacheConversionRate()
-    const USD = converter.fromFIL(1)
+  // LOCAL TESTS:
 
-    assert.equal(typeof USD, 'number')
-  })
+  // it('should return instances of BigNumber from .fromFil', async () => {
+  //   await converter.cacheConversionRate()
+  //   const USD = converter.fromFIL(1)
 
-  it('should return instances of BigNumber from .toFil', async () => {
-    await converter.cacheConversionRate()
-    const USD = converter.toFIL(1)
+  //   assert.equal(typeof USD, 'number')
+  // })
 
-    assert.equal(typeof USD, 'number')
-  })
+  // it('should return instances of BigNumber from .toFil', async () => {
+  //   await converter.cacheConversionRate()
+  //   const USD = converter.toFIL(1)
+
+  //   assert.equal(typeof USD, 'number')
+  // })
 })
