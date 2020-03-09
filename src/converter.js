@@ -17,18 +17,22 @@ class Converter {
     this.rate = await this.convert(1, 'FIL', this.currency)
   }
 
-  toFil = async amount => {
-    if (this.rate) return amount / this.rate
+  toFIL = amount => {
+    if (!this.rate)
+      throw new Error(
+        'Call cacheConversionRate() to get the conversion rate before calling this.',
+      )
 
-    const price = await this.convert(amount, this.currency, 'FIL')
-    return price
+    return amount / this.rate
   }
 
-  fromFil = async amount => {
-    if (this.rate) return this.rate / amount
+  fromFIL = amount => {
+    if (!this.rate)
+      throw new Error(
+        'Call cacheConversionRate() to get the conversion rate before calling this.',
+      )
 
-    const price = await this.convert(amount, 'FIL', this.currency)
-    return price
+    return amount * this.rate
   }
 
   convert = async (amount, from, to) => {

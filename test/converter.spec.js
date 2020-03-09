@@ -16,16 +16,22 @@ describe('Converter', () => {
     assert.equal(converter instanceof Converter, true)
   })
 
+  it('should throw an error if rate is not cached', async () => {
+    assert.throws(() => {
+      converter.fromFIL(1)
+    })
+  })
+
   it('should return instances of BigNumber from .fromFil', async () => {
     await converter.cacheConversionRate()
-    const USD = await converter.fromFil(1)
+    const USD = converter.fromFIL(1)
 
     assert.equal(typeof USD, 'number')
   })
 
   it('should return instances of BigNumber from .toFil', async () => {
     await converter.cacheConversionRate()
-    const USD = await converter.toFil(1)
+    const USD = converter.toFIL(1)
 
     assert.equal(typeof USD, 'number')
   })
