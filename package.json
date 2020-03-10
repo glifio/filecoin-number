@@ -1,6 +1,6 @@
 {
   "name": "@openworklabs/filecoin-number",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "a javascript package to handle Filecoin numbers like Fil and AttoFil",
   "main": "./dist/index.js",
   "browser": "./lib/index.js",
@@ -18,6 +18,7 @@
   "license": "(Apache-2.0 OR MIT)",
   "dependencies": {
     "@babel/polyfill": "^7.7.0",
+    "bent": "^7.1.0",
     "bignumber.js": "^9.0.0"
   },
   "devDependencies": {
@@ -28,6 +29,7 @@
     "@babel/preset-env": "^7.7.4",
     "aegir": "^20.5.1",
     "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.1.0",
     "eslint-config-airbnb": "^18.0.1",
