@@ -1,29 +1,38 @@
 const bent = require('bent')
+const BigNumber = require('bignumber.js')
+const FilecoinNumber = require('./FilecoinNumber')
 
 class Converter {
-  constructor(currency, oracle, oracleKey, oracleGateway) {
+  constructor(currency, { apiKey, apiURL }) {
     if (!currency) throw new Error('No currency passed.')
-    if (oracle !== 'coinmarketcap') {
-      throw new Error('We only support coinmarketcap as an oracle rn.')
-    }
-
     this.currency = currency
-    this.oracle = oracle
-    this.oracleKey = oracleKey || ''
-    this.oracleGateway = oracleGateway || 'https://pro-api.coinmarketcap.com/'
+    this.apiKey = apiKey || ''
+    this.apiURL = apiURL || 'https://pro-api.coinmarketcap.com/'
+    this.rate = null
   }
 
   cacheConversionRate = async () => {
-    this.rate = await this.convert(1, 'FIL', this.currency)
+    this.rate = new BigNumber(await this.convert(1, 'FIL', this.currency))
   }
 
   toFIL = amount => {
-    if (!this.rate)
+    if (!this.rate) {
       throw new Error(
         'Call cacheConversionRate() to get the conversion rate before calling .toFIL.',
       )
+    }
+    if (
+      typeof amount === 'string' ||
+      typeof amount === 'number' ||
+      amount instanceof BigNumber
+    ) {
+      const filAmount = new BigNumber(amount).dividedBy(this.rate)
+      return new FilecoinNumber(filAmount, 'fil')
+    }
 
-    return amount / this.rate
+    throw new Error(
+      'Amount passed must be a Number, String, or an instanceof BigNumber',
+    )
   }
 
   fromFIL = amount => {
@@ -32,16 +41,26 @@ class Converter {
         'Call cacheConversionRate() to get the conversion rate before calling .fromFIL.',
       )
 
-    return amount * this.rate
+    if (
+      typeof amount === 'string' ||
+      typeof amount === 'number' ||
+      amount instanceof BigNumber
+    ) {
+      return new BigNumber(amount).multipliedBy(this.rate)
+    }
+
+    throw new Error(
+      'Amount passed must be a Number, String, or an instanceof BigNumber',
+    )
   }
 
   convert = async (amount, from, to) => {
     const get = bent('GET', 'json', {
-      'X-CMC_PRO_API_KEY': this.oracleKey,
+      'X-CMC_PRO_API_KEY': this.apiKey,
     })
 
     const res = await get(
-      `${this.oracleGateway}/v1/tools/price-conversion?symbol=${from}&amount=${amount}&convert=${to}`,
+      `${this.apiURL}/v1/tools/price-conversion?symbol=${from}&amount=${amount}&convert=${to}`,
     )
 
     if (!res.data || !res.data.quote || !res.data.quote[to])
@@ -49,6 +68,8 @@ class Converter {
 
     return res.data.quote[to].price
   }
+
+  getCachedConversionRate = () => this.rate
 }
 
 module.exports = Converter
