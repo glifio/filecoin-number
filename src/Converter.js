@@ -16,6 +16,7 @@ class Converter {
   }
 
   toFIL = amount => {
+    if (!amount) return this.toFIL('0')
     if (!this.rate) {
       throw new Error(
         'Call cacheConversionRate() to get the conversion rate before calling .toFIL.',
@@ -36,6 +37,7 @@ class Converter {
   }
 
   fromFIL = amount => {
+    if (!amount) return this.fromFIL('0')
     if (!this.rate)
       throw new Error(
         'Call cacheConversionRate() to get the conversion rate before calling .fromFIL.',
