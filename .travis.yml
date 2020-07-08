@@ -1,5 +1,12 @@
+dist: bionic
+os: linux
 language: node_js
-cache: npm
+node_js:
+  - 12.14.1
+cache:
+directories:
+  - node_modules
+
 stages:
   # - check
   - test
