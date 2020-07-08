@@ -43,4 +43,9 @@ describe('FilecoinNumber', () => {
       )
     }
   })
+
+  it('does not use scientific notation', () => {
+    const fil = new FilecoinNumber('1000000000000', 'fil')
+    assert.equal(fil.toAttoFil().includes('e'), false)
+  })
 })
