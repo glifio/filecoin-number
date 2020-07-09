@@ -17,28 +17,11 @@ describe('FilecoinNumber', () => {
   })
 
   test('throws error if no denom is specified in constructor', () => {
-    // assert.throws not working for some reason?
-    try {
-      new FilecoinNumber('0.005')
-    } catch (err) {
-      expect(err instanceof Error).toBe(true)
-      expect(err.message).toBe(
-        'No Filecoin denomination passed in constructor.',
-      )
-    }
+    expect(() => new FilecoinNumber('0.005')).toThrow()
   })
 
   test('throws error if no denom is specified in constructor', () => {
     expect(() => new FilecoinNumber('0.005', 'ottofil')).toThrow()
-    // // assert.throws not working for some reason?
-    // try {
-    //   new FilecoinNumber('0.005', 'ottofil')
-    // } catch (err) {
-    //   expect(err instanceof Error).toBe(true)
-    //   expect(err.message).toBe(
-    //     'Unsupported denomination passed in constructor.',
-    //   )
-    // }
   })
 
   test('does not use scientific notation', () => {
