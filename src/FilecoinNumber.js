@@ -21,7 +21,7 @@ class FilecoinNumber extends BigNumber {
 
   toFil = () => this.toString()
 
-  toAttoFil = () => this.shiftedBy(18).toString()
+  toAttoFil = () => this.shiftedBy(18).toFixed(0, 1)
 }
 
 module.exports = FilecoinNumber

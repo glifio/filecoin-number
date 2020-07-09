@@ -1,6 +1,6 @@
 {
   "name": "@openworklabs/filecoin-number",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "a javascript package to handle Filecoin numbers like Fil and AttoFil",
   "main": "./dist/index.js",
   "browser": "./lib/index.js",
@@ -26,7 +26,7 @@
     "@babel/core": "^7.7.4",
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.7.4",
-    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-env": "^7.10.4",
     "babel-eslint": "^10.0.3",
     "cross-env": "^6.0.3",
     "eslint": "^6.1.0",
@@ -36,7 +36,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.17.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "jest": "^25.3.0",
+    "jest": "^26.1.0",
     "prettier": "1.19.1"
   },
   "files": [

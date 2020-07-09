@@ -9,6 +9,7 @@ cache:
 node_js:
   - '13'
   - '12'
+  - '10'
 
 script: npm test
 
