@@ -1,6 +1,6 @@
 {
   "name": "@openworklabs/filecoin-number",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "a javascript package to handle Filecoin numbers like Fil and AttoFil",
   "main": "./dist/index.js",
   "browser": "./lib/index.js",
