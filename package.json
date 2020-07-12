@@ -14,7 +14,7 @@
     "test": "npm run build && jest",
     "test:watch": "npm run build && jest --watch"
   },
-  "author": "",
+  "author": "openworklabs",
   "license": "(Apache-2.0 OR MIT)",
   "dependencies": {
     "@babel/polyfill": "7.7.0",
