@@ -6,7 +6,7 @@ describe('FilecoinNumber', () => {
     expect(BigNumber.isBigNumber(filecoinNum)).toBe(true)
   })
 
-  it('converts the same number into both fil and attofil denominations', () => {
+  test('converts the same number into both fil and attofil denominations', () => {
     const attoFilecoinNum = new FilecoinNumber('5000000000000000', 'attofil')
     expect(attoFilecoinNum.toFil()).toBe('0.005')
     expect(attoFilecoinNum.toAttoFil()).toBe('5000000000000000')
