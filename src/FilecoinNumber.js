@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js')
 
 // not sure how we want to configure rounding for this
 BigNumber.set({ ROUNDING_MODE: BigNumber.ROUND_HALF_DOWN })
-BigNumber.config({ EXPONENTIAL_AT: [-19, 20] })
+BigNumber.config({ EXPONENTIAL_AT: 1e9 })
 
 // stores filecoin numbers in denominations of Fil, not AttoFil
 class FilecoinNumber extends BigNumber {
