@@ -1,6 +1,6 @@
 const bent = require('bent')
 const BigNumber = require('bignumber.js')
-const FilecoinNumber = require('./FilecoinNumber')
+const FilecoinNumber = require('./filecoinNumber')
 
 class Converter {
   constructor(currency, { apiKey, apiURL }) {
@@ -52,7 +52,7 @@ class Converter {
     }
 
     throw new Error(
-      'Amount passed must be a Number, String, or an instanceof BigNumber',
+      'Amount passed must be a Number, String, or an instanceof BigNumber.',
     )
   }
 

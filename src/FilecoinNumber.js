@@ -15,7 +15,9 @@ class FilecoinNumber extends BigNumber {
       formattedDenom !== 'picofil' &&
       formattedDenom !== 'attofil'
     )
-      throw new Error('Unsupported denomination passed in constructor.')
+      throw new Error(
+        'Unsupported denomination passed in constructor. Must pass picofil or attofil.',
+      )
     if (formattedDenom === 'picofil') {
       super(new BigNumber(amount).shiftedBy(-12))
     } else if (formattedDenom === 'attofil') {

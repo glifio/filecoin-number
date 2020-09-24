@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js')
-const Converter = require('./Converter')
-const FilecoinNumber = require('./FilecoinNumber')
+const Converter = require('./converter')
+const FilecoinNumber = require('./filecoinNumber')
 
 module.exports = {
   BigNumber,
