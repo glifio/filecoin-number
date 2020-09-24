@@ -26,7 +26,7 @@ class FilecoinNumber extends BigNumber {
   }
 
   toFil = () => this.toString()
-  toPicoFil = () => this.shiftedBy(12).toFixed(0, 1)
+  toPicoFil = () => this.shiftedBy(12).toString()
   toAttoFil = () => this.shiftedBy(18).toFixed(0, 1)
 }
 
