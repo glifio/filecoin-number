@@ -10,9 +10,17 @@ class FilecoinNumber extends BigNumber {
     if (!denom)
       throw new Error('No Filecoin denomination passed in constructor.')
     const formattedDenom = denom.toLowerCase()
-    if (formattedDenom !== 'fil' && formattedDenom !== 'attofil')
-      throw new Error('Unsupported denomination passed in constructor.')
-    if (formattedDenom === 'attofil') {
+    if (
+      formattedDenom !== 'fil' &&
+      formattedDenom !== 'picofil' &&
+      formattedDenom !== 'attofil'
+    )
+      throw new Error(
+        'Unsupported denomination passed in constructor. Must pass picofil or attofil.',
+      )
+    if (formattedDenom === 'picofil') {
+      super(new BigNumber(amount).shiftedBy(-12))
+    } else if (formattedDenom === 'attofil') {
       super(new BigNumber(amount).shiftedBy(-18))
     } else {
       super(amount)
@@ -20,7 +28,7 @@ class FilecoinNumber extends BigNumber {
   }
 
   toFil = () => this.toString()
-
+  toPicoFil = () => this.shiftedBy(12).toString()
   toAttoFil = () => this.shiftedBy(18).toFixed(0, 1)
 }
 
