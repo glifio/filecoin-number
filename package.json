@@ -1,6 +1,6 @@
 {
   "name": "@openworklabs/filecoin-number",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "a javascript package to handle Filecoin numbers like Fil and AttoFil",
   "main": "./dist/index.js",
   "browser": "./lib/index.js",
@@ -10,6 +10,8 @@
     "build-module": "cross-env BABEL_ENV=module babel ./src --out-dir ./module --source-maps --copy-files",
     "build-node": "babel ./src --out-dir ./dist --source-maps --copy-files",
     "build": "npm run build-node && npm run build-browser && npm run build-module",
+    "notify:deprecated": "echo \"\\x1b[31m@openworklabs/filecoin-number HAS BEEN DEPRECATED IN FAVOR OF:\n@glif/filecoin-number\nPLEASE INSTALL UPDATED VERSION NOW.\"",
+    "preinstall": "npm run notify:deprecated",
     "prepublishOnly": "npm run build",
     "test": "npm run build && jest",
     "test:watch": "npm run build && jest --watch"
