@@ -1,6 +1,6 @@
 const bent = require('bent')
 const BigNumber = require('bignumber.js')
-const FilecoinNumber = require('./filecoinNumber')
+const FilecoinNumber = require('./FilecoinNumber')
 
 class Converter {
   constructor(currency, { apiKey, apiURL }) {
